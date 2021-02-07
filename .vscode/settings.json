@@ -1,7 +1,0 @@
-{
-    "python.pythonPath": "C:\\Users\\user\\Dropbox\\00_Projects\\70_github\\QLearning\\Scripts\\python.exe",
-    "python.formatting.provider": "C:\\Users\\user\\AppData\\Roaming\\Python\\Python37\\Script",
-    //"python.venvPath": "C:\\Users\\user\\Dropbox\\00_Projects\\70_github\\QLearning",
-    //"python.envFile": "${workspaceFolder}/.env",
-    "git.ignoreLimitWarning": true
-}
