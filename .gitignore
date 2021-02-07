@@ -1,6 +1,10 @@
 # binaries
 __pycache__/
 *.pyc
+*.cfg
 
 #vs-code settings
-.vscode
+.vscode/*
+
+#requirements
+Lib/*
