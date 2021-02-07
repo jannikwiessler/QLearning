@@ -5,6 +5,6 @@
 # ------------------------------------------------------------------
 FILE=./Scripts # check if repo is already venv
 if ! test -f "$FILE"; then
-    python -m venv .
+    python3 -m venv .
 fi
-./Scripts/pip install -r requirements.txt
+./Scripts/pip3 install -r requirements.txt
