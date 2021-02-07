@@ -8,3 +8,8 @@ __pycache__/
 
 #requirements
 Lib/*
+get_requirements_list.bat
+
+#venv 
+Scripts/*
+
