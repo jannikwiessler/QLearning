@@ -5,8 +5,7 @@ class Qtable():
     """class returning a qtabel. 
     
     Examples:
-    >>> qtable('fix_wrap_text_literals')
-    'libfuturize.fixes.fix_wrap_text_lit
+    >>> Qtable(env.observation_space.high, env.observation_space.low, [20, 20], env.action_space.n)
     """
     def __init__(self,max_observation, min_observation, descrete_os_size, number_of_actions):
         self.__max_observation = max_observation
@@ -37,6 +36,9 @@ class Qtable():
     def get_action(self, states):
         self.__calc_index(states)
         return (np.argmax(self.__q_table[self.__index]))
+
+    def get_number_of_actions(self):
+        return deepcopy(self.__action_space_dimension)
 
     def get_max_q_value(self, states):
         self.__calc_index(states)
