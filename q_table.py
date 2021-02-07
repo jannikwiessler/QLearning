@@ -18,12 +18,30 @@ class Qtable():
         self.__create_q_table()
         
     def __calc_os_win_size(self):
-        self.__discrete_os_win_size = (self.__descrete_os_size - self.__min_observation) / self.__max_observation
+        self.__discrete_os_win_size = (self.__max_observation - self.__min_observation) / self.__descrete_os_size
     
     def __create_q_table(self):
         self.__q_table = np.random.uniform(low=-2, high=0,size=self.__descrete_os_size + [self.__action_space_dimension])
 
+    def __calc_index(self, states):
+        self.__index = (states - self.__min_observation) / self.__discrete_os_win_size
+        self.__index = tuple(self.__index.astype(np.int))
+
+    def to_index(self, states):
+        self.__calc_index(states)
+        return deepcopy(tuple(self.__index))
+
     def get_q_table(self):
         return deepcopy(self.__q_table)
 
-        
+    def get_action(self, states):
+        self.__calc_index(states)
+        return (np.argmax(self.__q_table[self.__index]))
+
+    def get_max_q_value(self, states):
+        self.__calc_index(states)
+        return (np.max(self.__q_table[self.__index])) 
+
+    def set_q_value(self, states, action, value = 0):
+        self.__calc_index(states)
+        self.__q_table[self.__index + (action, )] = value
