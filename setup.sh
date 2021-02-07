@@ -5,6 +5,7 @@
 # ------------------------------------------------------------------
 FILE=./Scripts # check if repo is already venv
 if ! test -f "$FILE"; then
+    apt-get install -y python3-venv
     python3 -m venv .
 fi
 ./Scripts/pip3 install -r requirements.txt
