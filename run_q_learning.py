@@ -3,7 +3,7 @@
 try:
     import pyglet.gl
     GUIAVAILIABLE = True
-except ImportError:
+except Exception:
     GUIAVAILIABLE = False
 import gym
 from q_learning import QLeaning
