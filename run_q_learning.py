@@ -11,7 +11,7 @@ from q_table import Qtable
 
 env = gym.make("MountainCar-v0")
 
-file1 = open("MyFile.txt","a") 
+file1 = open("/root/QLearning/MyFile.txt","a") 
 file1.write('ubuntu test\n')
 file1.close()
 
