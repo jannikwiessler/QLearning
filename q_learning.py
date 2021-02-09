@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 eps = {"init_value": 0.5, "startepisode_of_decaying_eps": 1, "endepisode_of_decaying_eps": 500}
 
 class QLeaning():
-    def __init__(self, environment, q_table, learning_rate=0.1, discount=0.95, episodes=2000, eps=eps):
+    def __init__(self, environment, q_table, learning_rate=0.1, discount=0.95, episodes=2000, eps=eps,gui=False):
         self._interim_show_every = 200
         self._interim_save_every = 200
         self._learning_rate = learning_rate
@@ -18,6 +18,7 @@ class QLeaning():
         self._episode_reward = [] 
         self._aggr_episode_rewards = {'ep': [], 'avg': [], 'min': [], 'max': []}
         self._calc_decay_value_of_eps()
+        self._os_has_gui = gui
 
     def _calc_decay_value_of_eps(self):
         start = self._epsilon_dict["startepisode_of_decaying_eps"]
@@ -33,7 +34,7 @@ class QLeaning():
 
     def __run_episode(self):
         current_episode = self._current_episode
-        if current_episode % self._interim_show_every == 0:
+        if current_episode % self._interim_show_every == 0 and self._os_has_gui:
             print(f"Current episode: {current_episode}")
             render = True
         else: 
