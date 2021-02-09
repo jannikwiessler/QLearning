@@ -11,6 +11,10 @@ from q_table import Qtable
 
 env = gym.make("MountainCar-v0")
 
+file1 = open("MyFile.txt","a") 
+file1.write('ubuntu test\n')
+file1.close()
+
 q_table = Qtable(env.observation_space.high, env.observation_space.low, [20, 20], env.action_space.n)
 learning_engine = QLeaning(environment=env,q_table=q_table,gui=GUIAVAILIABLE)
 learning_engine.run_training()
